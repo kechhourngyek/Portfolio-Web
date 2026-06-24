@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kechhourng Yek | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      line-height: 1.6;
+      background: #f4f4f5;
+      color: #1f2937;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      padding: 72px 20px 60px;
+    }
+
+    .hero {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .hero-text-wrap h1 {
+      font-size: 3.2rem;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+
+    .hero-text-wrap .subtitle {
+      font-size: 1.15rem;
+      margin-bottom: 14px;
+      color: #e5e7eb;
+      font-weight: bold;
+    }
+
+    .hero-text {
+      max-width: 700px;
+      color: #cbd5e1;
+      margin-bottom: 22px;
+      font-size: 1.02rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .button,
+    .button-secondary {
+      display: inline-block;
+      padding: 11px 18px;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
+    }
+
+    .button {
+      background: #2563eb;
+      color: white;
+    }
+
+    .button:hover {
+      background: #1d4ed8;
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .button:hover,
+    .button-secondary:hover {
+      transform: translateY(-2px);
+      opacity: 0.97;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .social-links a:hover {
+      color: white;
+    }
+
+    .profile-card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      padding: 24px;
+      text-align: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .profile-image {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #2563eb, #60a5fa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: white;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.3);
+    }
+
+    .profile-card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+      color: white;
+    }
+
+    .profile-card p {
+      color: #dbeafe;
+      font-size: 0.95rem;
+    }
+
+    nav {
+      width: 90%;
+      max-width: 1100px;
+      margin: 28px auto 0;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: bold;
+      transition: opacity 0.2s ease;
+    }
+
+    nav a:hover {
+      opacity: 0.75;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 34px auto;
+    }
+
+    section {
+      background: white;
+      margin-bottom: 22px;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    section:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.1);
+    }
+
+    h2 {
+      margin-bottom: 16px;
+      color: #111827;
+      font-size: 2rem;
+    }
+
+    h3 {
+      color: #111827;
+    }
+
+    .section-intro {
+      color: #4b5563;
+      margin-bottom: 18px;
+    }
+
+    .highlight-boxes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .highlight-box {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 18px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .highlight-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+    }
+
+    .highlight-box .icon {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .skill-group {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .skill-group h3 {
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .skills-list li {
+      background: #e5e7eb;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      transition: transform 0.2s ease;
+    }
+
+    .skills-list li:hover {
+      transform: translateY(-2px);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 18px;
+      padding: 22px;
+      background: #fcfcfd;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+    }
+
+    .project-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      font-size: 0.82rem;
+      font-weight: bold;
+    }
+
+    .tech-stack {
+      font-size: 0.92rem;
+      font-weight: bold;
+      color: #2563eb;
+      margin: 8px 0 10px;
+    }
+
+    .project-card ul {
+      padding-left: 18px;
+      margin: 10px 0 16px;
+      color: #374151;
+    }
+
+    .card-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .small-link {
+      text-decoration: none;
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    .small-link:hover {
+      text-decoration: underline;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .contact-card {
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-buttons,
+      .social-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 56px 18px 48px;
+      }
+
+      .hero-text-wrap h1 {
+        font-size: 2.3rem;
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px;
+      }
+
+      section {
+        padding: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="hero">
+      <div class="hero-text-wrap">
+        <h1>Kechhourng Yek</h1>
+        <p class="subtitle">Software Engineering Student | Aspiring Software & IT Intern</p>
+        <p class="hero-text">
+          I build practical beginner-friendly projects in Python and web development while growing my skills in software engineering,
+          problem solving, and technical support.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="button" href="#projects">View Projects</a>
+          <a class="button-secondary" href="Kechhourng Yek Resume (1).pdf" target="_blank">Download Resume</a>
+        </div>
+
+        <div class="social-links">
+          <a href="https://github.com/kechhourngyek" target="_blank">GitHub</a>
+          <a href="#contact">Email</a>
+          <a href="https://www.linkedin.com/in/kechhourng-yek-toriiuts/" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-image">KY</div>
+        <h2>Open to Internships</h2>
+        <p>Interested in software engineering, IT support, and practical technical problem solving.</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#learning">Learning</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am a Software Engineering student at the University of Technology Sydney with hands-on experience in hardware troubleshooting,
+        system assembly, and process-driven work environments. I am currently building my programming skills through practical projects
+        and looking for internship opportunities in software development or IT support.
+      </p>
+
+      <div class="highlight-boxes">
+        <div class="highlight-box">
+          <div class="icon">💻</div>
+          <h3>Currently Building</h3>
+          <p>Python applications, beginner portfolio projects, and stronger frontend skills with HTML and CSS.</p>
+        </div>
+
+        <div class="highlight-box">
+          <div class="icon">🛠️</div>
+          <h3>Technical Background</h3>
+          <p>Hands-on experience with PC troubleshooting, hardware assembly, storage migration, and technical support tasks.</p>
+        </div>
+
+        <div class="highlight-box">
+          <div class="icon">🎯</div>
+          <h3>Looking For</h3>
+          <p>Internship opportunities where I can keep learning, contribute to projects, and grow industry-ready software skills.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <p class="section-intro">My academic background and key coursework supporting my growth in software engineering.</p>
+
+      <div class="highlight-boxes">
+        <div class="highlight-box">
+          <div class="icon">🎓</div>
+          <h3>University</h3>
+          <p><strong>University of Technology Sydney</strong><br>Bachelor of Engineering Science (Software Engineering)<br>2024 – Present</p>
+        </div>
+
+        <div class="highlight-box">
+          <div class="icon">📚</div>
+          <h3>Relevant Coursework</h3>
+          <p>Data Structures and Algorithms, Database Fundamentals, Systems Testing and Quality Management, Information System Development Methodologies, and Software Architecture.</p>
+        </div>
+
+        <div class="highlight-box">
+          <div class="icon">🚀</div>
+          <h3>Focus Areas</h3>
+          <p>Software development, problem solving, system design fundamentals, and practical technical skill building through projects.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Technical Skills</h2>
+      <p class="section-intro">A mix of programming, tools, and technical support skills I am developing through study and practical projects.</p>
+
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <ul class="skills-list">
+            <li>Python</li>
+            <li>Java</li>
+            <li>HTML</li>
+            <li>CSS</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Tools</h3>
+          <ul class="skills-list">
+            <li>Git</li>
+            <li>GitHub</li>
+            <li>VS Code</li>
+          </ul>
+        </div>
+
+        <div class="skill-group">
+          <h3>Concepts & Other</h3>
+          <ul class="skills-list">
+            <li>Data Structures</li>
+            <li>Problem Solving</li>
+            <li>PC Troubleshooting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="learning">
+      <h2>Currently Learning</h2>
+      <p class="section-intro">Skills and areas I am actively improving through study, coding practice, and personal projects.</p>
+
+      <div class="highlight-boxes">
+        <div class="highlight-box">
+          <div class="icon">🐍</div>
+          <h3>Python Project Development</h3>
+          <p>Building beginner-friendly applications such as task managers and expense trackers to strengthen logic and problem solving.</p>
+        </div>
+
+        <div class="highlight-box">
+          <div class="icon">🌐</div>
+          <h3>Frontend Development</h3>
+          <p>Improving my HTML and CSS skills by designing responsive layouts and creating cleaner user-friendly portfolio pages.</p>
+        </div>
+
+        <div class="highlight-box">
+          <div class="icon">🔧</div>
+          <h3>Git & GitHub Workflow</h3>
+          <p>Learning how to manage code, upload projects, and present my work more professionally through version control.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <p class="section-intro">Projects that show my progress in software development, web development, hardware interaction, and practical technical problem solving.</p>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <span class="project-label">Full-Stack Project</span>
+          <h3>Behaviour-Aware Study Assistant (BASA)</h3>
+          <p class="tech-stack">React | Node.js | Express | SQLite</p>
+          <p>A university group project designed to help students manage study tasks, track study sessions, and receive behaviour-aware feedback.</p>
+          <ul>
+            <li>Built task management features for creating, viewing, updating, and completing study tasks</li>
+            <li>Connected a React frontend with a Node.js and Express backend using API endpoints</li>
+            <li>Used SQLite to store task, session, and study history data locally</li>
+            <li>Contributed to focus tracking, session quality feedback, and study recommendation features</li>
+          </ul>
+        </div>
+
+        <div class="project-card">
+          <span class="project-label">Arduino Project</span>
+          <h3>Animal Battle Game</h3>
+          <p class="tech-stack">Arduino | C++ | RFID | Game Logic</p>
+          <p>An Arduino-based RFID card battle game where animal cards are scanned and used in a simple battle system.</p>
+          <ul>
+            <li>Developed game logic for animal cards, stats, buffs, and battle outcomes</li>
+            <li>Used RFID card scanning to identify different animals during gameplay</li>
+            <li>Integrated Arduino code with hardware components for interactive play</li>
+            <li>Practised debugging, testing, and improving code structure across multiple files</li>
+          </ul>
+          <div class="card-links">
+            <a class="small-link" href="https://github.com/DarkBlueWall/animal-battle" target="_blank">GitHub</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <span class="project-label">Web Project</span>
+          <h3>Personal Portfolio Website</h3>
+          <p class="tech-stack">HTML | CSS | GitHub Pages</p>
+          <p>A responsive personal website created to present my education, skills, experience, and technical projects.</p>
+          <ul>
+            <li>Built a clean one-page layout using HTML and CSS</li>
+            <li>Organised content into About, Education, Skills, Projects, and Contact sections</li>
+            <li>Prepared the website for publishing online using GitHub Pages</li>
+          </ul>
+          <div class="card-links">
+            <a class="small-link" href="https://github.com/kechhourngyek" target="_blank">GitHub</a>
+            <a class="small-link" href="https://kechhourngyek.github.io" target="_blank">Live Site</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Email</h3>
+          <p>kechhourng.yek@gmail.com</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Location</h3>
+          <p>Sydney, Australia</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Opportunities</h3>
+          <p>Software Engineering and IT Support internships</p>
+        </div>
+      </div>
+
+      <div class="hero-buttons">
+        <a class="button" href="mailto:kechhourng.yek@gmail.com">Email Me</a>
+        <a class="button-secondary" href="https://github.com/kechhourngyek" target="_blank">View GitHub</a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2026 Kechhourng Yek. Built with HTML and CSS.</p>
+  </footer>
+</body>
+</html>
